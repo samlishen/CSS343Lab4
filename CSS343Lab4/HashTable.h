@@ -22,12 +22,12 @@
 
 using namespace std;
 
-template < class T>
+template <class T>
 
 class HashTable{
 public:
     HashTable();
-    bool insert( int,T*);
+    bool insert(int, T*);
     void display()const;
     int getSize()const;
     bool checkID(int )const;

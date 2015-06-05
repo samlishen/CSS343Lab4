@@ -1,4 +1,4 @@
-//
+
 //  customer.h
 //  MovieStore
 //
@@ -9,13 +9,11 @@
 #ifndef __MovieStore__customer__
 #define __MovieStore__customer__
 
-
 #include "movie.h"
+#include "command.h"
 #include <vector>
-#include <iostream>
 #include <string>
 using namespace std;
-class Command;
 
 class Customer {
 public:
@@ -37,7 +35,7 @@ public:
     bool deleteOwn(Movie* m);
     
     
-    virtual Customer* create(ifstream&) const;
+    virtual Customer* create(ifstream&) const ;
     
 private:
     int ID;

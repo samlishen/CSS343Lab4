@@ -11,7 +11,7 @@
 
 #include "command.h"
 
-class Return {
+class Return : Command {
 public:
     Return();
     ~Return();

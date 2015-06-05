@@ -40,6 +40,17 @@ Movie* Comedy:: create(ifstream& infile) const {
     return newMovie;
 }
 
+Movie* Comedy:: createSimpleVersion(ifstream& infile) const {
+    Comedy* newMovie = new Comedy;
+    string t;
+    int y;
+    
+    infile.get();
+    getline(infile, t, ',');
+    infile >> y;
+    n
+}
+
 char Comedy:: getType() const {
     return 'F';
 }

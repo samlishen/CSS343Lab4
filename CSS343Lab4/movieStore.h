@@ -19,6 +19,7 @@
 using namespace std;
 
 class MovieStore {
+    friend class Instruction;
 public:
     MovieStore();
     ~MovieStore();
@@ -29,7 +30,7 @@ public:
 private:
     const int TYPESIZE = 26;
     BSTree** moviesDatabase;
-    HashTable<Customer> customers;
+    HashTable<Customer*> customers;
     MovieFactory moviefactory;
 };
 

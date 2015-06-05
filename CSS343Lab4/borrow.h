@@ -19,8 +19,7 @@ public:
     Borrow();
     ~Borrow();
     
-    virtual bool process(BSTree**, HashTable<Customer>);
-    virtual Instruction* create(ifstream&) const;
+    virtual Instruction* create(MovieStore*, ifstream&) const;
     virtual string toString() const;
     
 protected:

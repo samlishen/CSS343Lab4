@@ -19,11 +19,10 @@ public:
     Command();
     ~Command();
     
-    virtual bool process(BSTree*, HashTable<Customer>) = 0;
     virtual string toString() const = 0;
+    
 protected:
-    int customer;
-    static MovieFactory movieFactory;
+    Customer* customer;
 };
 
 #endif /* defined(__CSS343Lab4__command__) */

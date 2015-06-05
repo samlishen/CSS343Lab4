@@ -8,3 +8,8 @@
 
 #include "return.h"
 
+Instruction* Return:: create(ifstream& infile) const {
+    Return* newInstruction = new Return;
+    int id;
+    char
+}

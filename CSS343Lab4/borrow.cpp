@@ -8,34 +8,15 @@
 
 #include "borrow.h"
 
-Instruction* Borrow:: create(ifstream& infile) const {
-    Borrow* newInstruction = new Borrow;
+Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
     int id;
-    char mediaT, movieT;
+    Customer* customerToBeProcessed;
     infile >> id;
-    infile >> mediaT;
-    infile >> movieT;
-    newInstruction->customer = id;
-    newInstruction->mediaType = mediaT;
-    
-    Movie* theMovie = movieFactory.createIt(movieT, infile);
-    newInstruction->movie = theMovie;
-    
-    return newInstruction;
-}
-
-bool Borrow:: process(BSTree** movieTree, HashTable<Customer>customerList) {
-    if(movieTree[hash(mediaType)] == NULL) return false;
-    BSTree* tree = movieTree[hash(mediaType)];
-    Movie* m;
-    Customer* c = customerList.retrieve(customer);
-    if (tree->retrieve(movie, m)) {
-        if (m->borrowType(mediaType, 1)) {
-            c->addOnHold(m);
-            return true;
-        }
+    if ((store->customers).retrieve(id, customerToBeProcessed)) {
+        char mediaT, movieT;
+        Movie* movieToBeProcessed;
+        infile
     }
-    return false;
 }
 
 string Borrow:: toString() const {

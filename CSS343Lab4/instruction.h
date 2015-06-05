@@ -11,6 +11,7 @@
 
 #include <fstream>
 #include <iostream>
+#include "movieStore.h"
 using namespace std;
 
 class Instruction {
@@ -18,9 +19,9 @@ public:
     Instruction();
     virtual ~Instruction();
     
-    virtual Instruction* create(fstream&) const;
+    virtual Instruction* create(MovieStore* ,fstream&) const = 0;
     
-private:
+protected:
     virtual int hash(char) const;
 };
 

@@ -9,19 +9,7 @@
 #include "classics.h"
 
 ostream& operator <<(ostream& outStream, const Classics& classics) {
-    outStream
-    << classics.title << "\t\t"
-    << classics.director << "\t"
-    << classics.year << "." << classics.month << "\t"
-    << classics.actorFirstName << " " << classics.actorLastName
-    << endl;
-    for (int i = 0; i < 26; i++) {
-        if (classics.type[i] != NULL) {
-            outStream << classics.type[i]->getTypeName()
-            << ":\t" << classics.type[i]->getCurrent() << "/"
-            << classics.type[i]->getMax() << endl;
-        }
-    }
+    outStream << classics.toString() << classics.displayType();
     return outStream;
 }
 
@@ -58,7 +46,19 @@ Movie* Classics:: create(ifstream& infile) const {
     return newMovie;
 }
 
-bool Classics:: operator < (const Classics& that) const {
+char Classics:: getType() const {
+    return 'C';
+}
+
+string Classics:: toString() const {
+    string retVal = title + "\t\t\t" + director + "\t\t" + to_string(year) +
+    "." + to_string(month) + "\t" + actorFirstName + " " + actorLastName;
+    return retVal;
+}
+
+
+bool Classics:: operator < (const Movie& movie) const {
+    Classics that = static_cast<const Classics&>(movie);
     if (year < that.year) {
         return true;
     }
@@ -77,14 +77,16 @@ bool Classics:: operator < (const Classics& that) const {
     return false;
 }
 
-bool Classics:: operator==(const Classics& that) const {
+bool Classics:: operator==(const Movie& movie) const {
+    Classics that = static_cast<const Classics&>(movie);
     return year == that.year &&
     month == that.month &&
     actorFirstName == that.actorFirstName &&
     actorLastName == that.actorLastName;
 }
 
-bool Classics:: operator>(const Classics& that) const {
+bool Classics:: operator>(const Movie& movie) const {
+    Classics that = static_cast<const Classics&>(movie);
     if (year > that.year) {
         return true;
     }

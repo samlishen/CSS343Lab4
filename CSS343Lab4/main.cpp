@@ -7,7 +7,12 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include "movieStore.h"
+using namespace std;
 
 int main() {
-    
+    MovieStore store;
+    ifstream infile("data4movies.txt");
+    store.buildMovieDepository(infile);
 }

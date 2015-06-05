@@ -18,10 +18,12 @@ public:
     virtual ~Classics();
     
     virtual Movie* create(ifstream&) const;
+    virtual char getType() const;
+    virtual string toString() const;
     
-    bool operator < (const Classics&) const;
-    bool operator == (const Classics&) const;
-    bool operator > (const Classics&) const;
+    bool operator < (const Movie&) const;
+    bool operator == (const Movie&) const;
+    bool operator > (const Movie&) const;
     
 protected:
     string actorFirstName, actorLastName;

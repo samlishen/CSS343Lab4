@@ -9,6 +9,7 @@
 #include "movie.h"
 
 Movie:: Movie() {
+    type = new MediaType*[TYPESIZE];
     for (int i = 0; i < 26; i++) {
         type[i] = NULL;
     }
@@ -22,6 +23,24 @@ Movie:: ~Movie() {
             type[i] = NULL;
         }
     }
+    delete [] type;
+}
+
+string Movie:: toString() const {
+    string retVal = title + "\t\t\t" + director + "\t\t" + to_string(year);
+    return retVal;
+}
+
+string Movie:: displayType() const {
+    string retVal = "";
+    for (int i = 0; i < 26; i++) {
+        if (type[i] != NULL) {
+            retVal += "\n" + type[i]->getTypeName() + ": " +
+            to_string(type[i]->getCurrent()) + "/" +
+            to_string(type[i]->getMax());
+        }
+    }
+    return retVal;
 }
 
 bool Movie:: isEnough(char typeName, int amount) const{
@@ -53,5 +72,5 @@ bool Movie:: addType(char typeName, int amount) {
 }
 
 int Movie:: hash(char ch) const {
-    return ch - 'a';
+    return ch - 'A';
 }

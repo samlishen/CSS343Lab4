@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A01E78D1B226DDA009B4DA2 /* customer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A01E78B1B226DDA009B4DA2 /* customer.cpp */; };
 		0A3C93261B212D1C00FB422D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C93251B212D1C00FB422D /* main.cpp */; };
 		0A3C932E1B212D4400FB422D /* mediaType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C932C1B212D4400FB422D /* mediaType.cpp */; };
 		0A3C93311B212F8E00FB422D /* movie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C932F1B212F8E00FB422D /* movie.cpp */; };
@@ -35,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A01E78B1B226DDA009B4DA2 /* customer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = customer.cpp; sourceTree = "<group>"; };
+		0A01E78C1B226DDA009B4DA2 /* customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customer.h; sourceTree = "<group>"; };
 		0A3C93221B212D1C00FB422D /* CSS343Lab4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSS343Lab4; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C93251B212D1C00FB422D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0A3C932C1B212D4400FB422D /* mediaType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mediaType.cpp; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 		0A3C93191B212D1C00FB422D = {
 			isa = PBXGroup;
 			children = (
+				0A01E78B1B226DDA009B4DA2 /* customer.cpp */,
+				0A01E78C1B226DDA009B4DA2 /* customer.h */,
 				0A3C93241B212D1C00FB422D /* CSS343Lab4 */,
 				0A3C93231B212D1C00FB422D /* Products */,
 			);
@@ -201,6 +206,7 @@
 				0A3C93641B216BD400FB422D /* return.cpp in Sources */,
 				0A3C932E1B212D4400FB422D /* mediaType.cpp in Sources */,
 				0A3C93591B215F9200FB422D /* command.cpp in Sources */,
+				0A01E78D1B226DDA009B4DA2 /* customer.cpp in Sources */,
 				0A3C93371B21405300FB422D /* drama.cpp in Sources */,
 				0A3C934C1B214BEF00FB422D /* movieStore.cpp in Sources */,
 				0A3C935C1B21603E00FB422D /* borrow.cpp in Sources */,

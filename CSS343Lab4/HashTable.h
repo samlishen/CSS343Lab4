@@ -27,11 +27,11 @@ template < class T>
 class HashTable{
 public:
     HashTable();
-    bool insert( int,T*);
+    bool insert( int,T&);
     void display()const;
     int getSize()const;
     bool checkID(int )const;
-    bool retrieve(int, T* &)const;
+    bool retrieve(int, T&)const;
     
     bool remove(int);
     
@@ -45,11 +45,11 @@ private:
     
     
     struct LinkNode{
-        T* data;
+        T data;
         int key;
         LinkNode* next;
         ~LinkNode(){
-            delete data;
+            
             
         }
     };
@@ -76,7 +76,7 @@ HashTable<T>::HashTable(){
 }
 
 template<class T>
-bool HashTable<T>::insert(int c, T* data){
+bool HashTable<T>::insert(int c, T& data){
     
     if(checkID(c)){
         return false;
@@ -127,7 +127,7 @@ void HashTable<T>::display()const{
             LinkNode* curr=array[i].root;
             while(curr!=NULL){
                 cout<<curr->key<<"\t";
-                cout<<*(curr->data)<<"\t";
+                cout<<curr->data<<"\t";
                 curr=curr->next;
             }
         }
@@ -174,9 +174,17 @@ bool HashTable<T>::remove(int num){
         int index=hash(num);
         
         LinkNode* curr=array[index].root;
+        
         if(curr->next==NULL){
             delete array[index].root;
             array[index].root=NULL;
+            return true;
+        }
+        if(curr->key==num){
+            
+            array[index].root=curr->next;
+            delete curr;
+            return true;
         }
         else{
             while(curr->next!=NULL){
@@ -185,6 +193,7 @@ bool HashTable<T>::remove(int num){
                     curr->next=curr->next->next;
                     nextnext->next=NULL;
                     delete nextnext;
+                    
                     return true;
                 }
                 curr=curr->next;
@@ -196,9 +205,9 @@ bool HashTable<T>::remove(int num){
     }
 }
 template <class T>
-bool HashTable<T>::retrieve(int num, T* & save)const{
+bool HashTable<T>::retrieve(int num, T& save)const{
     if(!checkID(num)){
-        save=NULL;
+        
         return false;
     }
     else{
@@ -208,6 +217,7 @@ bool HashTable<T>::retrieve(int num, T* & save)const{
         while(curr!=NULL){
             if(curr->key==num){
                 save=curr->data;
+                
                 return true;
             }
             curr=curr->next;

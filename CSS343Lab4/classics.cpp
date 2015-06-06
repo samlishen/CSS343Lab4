@@ -13,6 +13,10 @@ ostream& operator <<(ostream& outStream, const Classics& classics) {
     return outStream;
 }
 
+
+/**----------------------------------------------------------------------
+ constructor
+ ----------------------------------------------------------------------*/
 Classics:: Classics() : Movie(){
     
 }

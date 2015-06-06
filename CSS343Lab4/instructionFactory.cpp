@@ -1,9 +1,8 @@
 //
 //  instructionFactory.cpp
 //  CSS343Lab4
-//
-//  Created by Shen Li on 15/6/5.
-//  Copyright (c) 2015年 Shen Li. All rights reserved.
+//  Created by Shen Li and Kuo on 15/6/4.
+//  Copyright (c) 2015年 Shen Li and Kuo All rights reserved.
 //
 
 #include "instructionFactory.h"
@@ -34,8 +33,7 @@ InstructionFactory:: ~InstructionFactory() {
     delete [] instructions;
 }
 
-Instruction* InstructionFactory::
-createIt(char ch, MovieStore* store, ifstream& infile) const {
+Instruction* InstructionFactory::createIt(char ch, MovieStore* store, ifstream& infile) const {
     if (instructions[hash(ch)] == NULL) {
         string reading;
         getline(infile, reading);

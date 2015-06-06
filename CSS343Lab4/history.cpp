@@ -2,17 +2,25 @@
 //  history.cpp
 //  CSS343Lab4
 //
-//  Created by Shen Li on 15/6/5.
-//  Copyright (c) 2015年 Shen Li. All rights reserved.
+//  Created by Shen Li and Kuo on 15/6/4.
+//  Copyright (c) 2015年 Shen Li and Kuo All rights reserved.
 //
 
 #include "history.h"
 #include "movieStore.h"
 
+
+/**----------------------------------------------------------------------
+ constructor
+ ----------------------------------------------------------------------*/
 History:: History() {
     
 }
 
+
+/**----------------------------------------------------------------------
+ destructor
+ ----------------------------------------------------------------------*/
 History:: ~History() {
     
 }

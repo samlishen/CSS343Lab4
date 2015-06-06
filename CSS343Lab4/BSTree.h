@@ -1,9 +1,9 @@
-
+//
 //  BSTree.h
 //  CSS343Lab4
 //
-//  Created by Shen Li on 15/6/4.
-//  Copyright (c) 2015年 Shen Li. All rights reserved.
+//  Created by Shen Li and Kuo on 15/6/4.
+//  Copyright (c) 2015年 Shen Li and Kuo All rights reserved.
 //
 
 #ifndef __CSS343Lab4__BSTree__
@@ -14,24 +14,28 @@ using namespace std;
 
 class BSTree {
 public:
-    BSTree();
-    ~BSTree();
-    bool insert(Movie*);
-    bool retrieve(Movie*, Movie*&);
-    void clear();
-    void display() const;
+    BSTree();   //default constructor
+    ~BSTree();  //destructor
+    bool insert(Movie*);    //insert function
+    bool retrieve(Movie*, Movie*&); //retrieve function
+    void clear();//remove all
+    void display() const;   //display function
     
 private:
+    //treeNode
     struct Node{
         Movie* pDate;
         Node* left;
         Node* right;
     };
+    //head of the tree
     Node* head;
-    bool insert(Movie*, Node*&);
-    bool retrieve(Movie*, Movie*&, Node*);
-    void clear(Node*);
-    void display(Node*) const;
+    
+    
+    bool insert(Movie*, Node*&);//helper function for insert
+    bool retrieve(Movie*, Movie*&, Node*);//helper function for retrieve
+    void clear(Node*);//helper function for destructor
+    void display(Node*) const;//helper function for display
 };
 
 #endif /* defined(__CSS343Lab4__BSTree__) */

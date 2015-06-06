@@ -2,8 +2,8 @@
 //  customer.h
 //  MovieStore
 //
-//  Created by Shen Li on 15/5/31.
-//  Copyright (c) 2015年 Shen Li. All rights reserved.
+//  Created by Shen Li and Kuo on 15/6/4.
+//  Copyright (c) 2015年 Shen Li and Kuo All rights reserved.
 //
 
 #ifndef __MovieStore__customer__

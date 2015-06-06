@@ -28,14 +28,25 @@ void BSTree:: clear() {
     clear(head);
 }
 
-bool BSTree:: insert(Movie* m, Node* node) {
-    if (node == NULL) {
-        node->pDate = m;
+bool BSTree:: insert(Movie* m, Node* & node) {
+    
+    if(node==NULL){
+        Node* n=new Node();
+        n->pDate=m;
+        n->left=NULL;
+        n->right=NULL;
+        node=n;
         return true;
-    } else if (*(node->pDate) > *m) {
-        return insert(m, node->left);
-    } else if (*(node->pDate) < *m) {
-        return insert(m, node->right);
+    }
+    
+    if(*(node->pDate)==*m){
+        return false;
+    }
+    if(*(node->pDate)>*m){
+        return insert(m,node->left);
+    }
+    if(*(node->pDate)<*m){
+        return insert(m,node->right);
     }
     return false;
 }

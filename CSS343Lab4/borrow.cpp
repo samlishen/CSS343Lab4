@@ -7,37 +7,52 @@
 //
 
 #include "borrow.h"
+#include "movieStore.h"
 
-Instruction* Borrow:: create(ifstream& infile) const {
-    Borrow* newInstruction = new Borrow;
-    int id;
-    char mediaT, movieT;
-    infile >> id;
-    infile >> mediaT;
-    infile >> movieT;
-    newInstruction->customer = id;
-    newInstruction->mediaType = mediaT;
+Borrow:: Borrow() {
     
-    Movie* theMovie = movieFactory.createIt(movieT, infile);
-    newInstruction->movie = theMovie;
-    
-    return newInstruction;
 }
 
-bool Borrow:: process(BSTree** movieTree, HashTable<Customer>customerList) {
-    if(movieTree[hash(mediaType)] == NULL) return false;
-    BSTree* tree = movieTree[hash(mediaType)];
-    Movie* m;
-    Customer* c = customerList.retrieve(customer);
-    if (tree->retrieve(movie, m)) {
-        if (m->borrowType(mediaType, 1)) {
-            c->addOnHold(m);
-            return true;
+Borrow:: ~Borrow() {
+    
+}
+
+Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
+    int id;
+    Customer* customerToBeProcessed = NULL;
+    infile >> id;
+    if ((store->customers).retrieve(id, customerToBeProcessed)) {
+        char mediaT, movieT;
+        Movie* movieToBeSearch = NULL;
+        infile >> mediaT >> movieT;
+        movieToBeSearch = movieFactory.createSimpleIt(movieT, infile);
+        if (movieToBeSearch == NULL) {
+            delete customerToBeProcessed;
+            return NULL;
+        }
+        Movie* movieToBeProcessed = NULL;
+        if ((store->moviesDatabase)[hash(movieT)]->
+            retrieve(movieToBeSearch, movieToBeProcessed)) {
+            if (movieToBeProcessed->borrowType(mediaT, 1)) {
+                customerToBeProcessed->addOwn(movieToBeProcessed);
+                Borrow* newInstruction;
+                newInstruction->movie = movieToBeProcessed;
+                newInstruction->customer = customerToBeProcessed;
+                newInstruction->mediaType = mediaT;
+                newInstruction->customer->addHistory(newInstruction);
+                return newInstruction;
+            }
         }
     }
-    return false;
+    string reading;
+    getline(infile, reading);
+    return NULL;
 }
 
 string Borrow:: toString() const {
     return to_string(mediaType) + "\tBorrow\t" + movie->toString();
+}
+
+char Borrow:: getType() const {
+    return 'B';
 }

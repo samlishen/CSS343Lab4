@@ -19,6 +19,8 @@ public:
     ~Drama();
     
     virtual Movie* create(ifstream&) const;
+    virtual Movie* createSimpleVersion(ifstream&) const;
+    
     virtual char getType() const;
     
     virtual bool operator < (const Movie&) const;

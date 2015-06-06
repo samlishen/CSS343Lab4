@@ -9,28 +9,36 @@
 #ifndef __CSS343Lab4__movieStore__
 #define __CSS343Lab4__movieStore__
 
-#include "movie.h"
-#include "Customer.h"
+#include <fstream>
+#include <iostream>
 #include "BSTree.h"
 #include "HashTable.h"
 #include "movieFactory.h"
-#include <fstream>
-#include <iostream>
+#include "instructionFactory.h"
+#include "customer.h"
+
 using namespace std;
 
+class InstructionFactory;
+
 class MovieStore {
+    friend class Borrow;
+    friend class Return;
+    friend class History;
 public:
     MovieStore();
     ~MovieStore();
     
     void buildMovieDepository(ifstream&);
     void buildCustomerDepository(ifstream&);
+    void processInstruction(ifstream&);
     
 private:
     const int TYPESIZE = 26;
     BSTree** moviesDatabase;
-    HashTable<Customer> customers;
-    MovieFactory moviefactory;
+    HashTable<Customer*> customers;
+    static MovieFactory moviefactory;
+    static InstructionFactory instructionFactory;
 };
 
 #endif /* defined(__CSS343Lab4__movieStore__) */

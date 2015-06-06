@@ -1,4 +1,4 @@
-//
+
 //  BSTree.h
 //  CSS343Lab4
 //
@@ -28,7 +28,7 @@ private:
         Node* right;
     };
     Node* head;
-    bool insert(Movie*, Node*);
+    bool insert(Movie*, Node*&);
     bool retrieve(Movie*, Movie*&, Node*);
     void clear(Node*);
     void display(Node*) const;

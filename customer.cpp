@@ -7,7 +7,8 @@
 //
 
 
-#include "Customer.h"
+#include "customer.h"
+#include "instruction.h"
 #include <iostream>
 
 using namespace std;
@@ -97,10 +98,11 @@ bool Customer::operator == (const Customer& c) const{
     
 }
 
-void Customer::addHistory(Command* com){
-    vector<Command*>::iterator it=history.begin();
+void Customer::addHistory(Instruction* com){
+    vector<Instruction*>::iterator it=history.begin();
     history.insert(it,com);
 }
+
 void Customer::displayHistory()const{
     
     for(int i=0;i<history.size();i++){

@@ -11,17 +11,25 @@
 
 #include <fstream>
 #include <iostream>
+#include "movieStore.h"
 using namespace std;
+
+class MovieStore;
+class Customer;
 
 class Instruction {
 public:
     Instruction();
     virtual ~Instruction();
     
-    virtual Instruction* create(fstream&) const;
+    virtual Instruction* create(MovieStore*, ifstream&) const;
+    virtual string toString() const;
+    virtual char getType() const;
     
-private:
+protected:
+    Customer* customer;
     virtual int hash(char) const;
+    static MovieFactory movieFactory;
 };
 
 #endif /* defined(__CSS343Lab4__instruction__) */

@@ -40,6 +40,11 @@ Movie* MovieFactory:: createIt(char ch, ifstream& infile) const {
     return movies[hash(ch)]->create(infile);
 }
 
+Movie* MovieFactory:: createSimpleIt(char ch, ifstream& infile) const {
+    if (movies[hash(ch)] == NULL) return NULL;
+    return movies[hash(ch)]->createSimpleVersion(infile);
+}
+
 int MovieFactory:: hash(char ch) const {
     return ch - 'A';
 }

@@ -40,6 +40,22 @@ Movie* Drama:: create(ifstream& infile) const {
     return newMovie;
 }
 
+Movie* Drama:: createSimpleVersion(ifstream& infile) const {
+    Drama* newMovie = new Drama;
+    string d, t;
+    
+    infile.get();
+    getline(infile, d, ',');
+    
+    infile.get();
+    getline(infile, t, ',');
+    
+    newMovie->director = d;
+    newMovie->title = t;
+    
+    return newMovie;
+}
+
 char Drama:: getType() const {
     return 'D';
 }

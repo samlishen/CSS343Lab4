@@ -18,6 +18,7 @@ public:
     ~Comedy();
     
     virtual Movie* create(ifstream&) const;
+    virtual Movie* createSimpleVersion(ifstream& infile) const;
     virtual char getType() const;
     
     virtual bool operator < (const Movie&) const;

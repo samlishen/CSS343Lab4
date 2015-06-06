@@ -18,6 +18,7 @@ public:
     virtual ~Classics();
     
     virtual Movie* create(ifstream&) const;
+    virtual Movie* createSimpleVersion(ifstream&) const;
     virtual char getType() const;
     virtual string toString() const;
     

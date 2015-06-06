@@ -9,15 +9,16 @@
 #ifndef __CSS343Lab4__return__
 #define __CSS343Lab4__return__
 
-#include "command.h"
+#include "instruction.h"
 
-class Return : public Command {
+class Return : public Instruction {
 public:
     Return();
     virtual ~Return();
     
     virtual Instruction* create(MovieStore*, ifstream&) const;
     virtual string toString() const;
+    virtual char getType() const;
     
 private:
     Movie* movie;

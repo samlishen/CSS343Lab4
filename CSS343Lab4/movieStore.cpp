@@ -10,10 +10,18 @@
 
 MovieStore:: MovieStore() {
     moviesDatabase = new BSTree*[TYPESIZE];
+    for (int i = 0; i < TYPESIZE; i++) {
+        moviesDatabase[i] = new BSTree;
+    }
 }
 
 MovieStore:: ~MovieStore() {
-    
+    for (int i = 0; i < TYPESIZE; i++) {
+        delete moviesDatabase[i];
+        moviesDatabase[i] = NULL;
+    }
+    delete [] moviesDatabase;
+    moviesDatabase = NULL;
 }
 
 void MovieStore:: buildMovieDepository(ifstream& infile) {
@@ -40,5 +48,16 @@ void MovieStore:: buildCustomerDepository(ifstream& infile) {
         if(infile.eof()) return;
         Customer* newCustomer = creator.create(infile);
         customers.insert(newCustomer->getID(), newCustomer);
+    }
+}
+
+void MovieStore:: processInstruction(ifstream& infile) {
+    while (true) {
+        char type;
+        infile >> type;
+        if (infile.eof()) {
+            return;
+        }
+        instructionFactory.createIt(type, this, infile);
     }
 }

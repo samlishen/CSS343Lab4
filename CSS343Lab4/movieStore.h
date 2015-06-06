@@ -14,9 +14,12 @@
 #include "BSTree.h"
 #include "HashTable.h"
 #include "movieFactory.h"
+#include "instructionFactory.h"
 #include "customer.h"
 
 using namespace std;
+
+class InstructionFactory;
 
 class MovieStore {
     friend class Borrow;
@@ -28,12 +31,14 @@ public:
     
     void buildMovieDepository(ifstream&);
     void buildCustomerDepository(ifstream&);
+    void processInstruction(ifstream&);
     
 private:
     const int TYPESIZE = 26;
     BSTree** moviesDatabase;
     HashTable<Customer*> customers;
-    MovieFactory moviefactory;
+    static MovieFactory moviefactory;
+    static InstructionFactory instructionFactory;
 };
 
 #endif /* defined(__CSS343Lab4__movieStore__) */

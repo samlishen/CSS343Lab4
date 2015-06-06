@@ -14,7 +14,8 @@
 #include <string>
 using namespace std;
 
-class Command;
+class Instruction;
+
 class Customer {
 public:
     Customer();
@@ -26,7 +27,7 @@ public:
     string getLastName()const;
     
     bool operator == (const Customer&) const;
-    void addHistory(Command*);
+    void addHistory(Instruction*);
     virtual void displayHistory()const;
     
     bool getOwn(Movie* m,Movie* save)const;
@@ -41,7 +42,7 @@ private:
     string first;
     string last;
     
-    vector<Command*> history;
+    vector<Instruction*> history;
     vector<Movie*> owned;
 };
 

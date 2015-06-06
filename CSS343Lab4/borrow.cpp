@@ -7,6 +7,7 @@
 //
 
 #include "borrow.h"
+#include "movieStore.h"
 
 Borrow:: Borrow() {
     
@@ -38,6 +39,7 @@ Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
                 newInstruction->movie = movieToBeProcessed;
                 newInstruction->customer = customerToBeProcessed;
                 newInstruction->mediaType = mediaT;
+                newInstruction->customer->addHistory(newInstruction);
                 return newInstruction;
             }
         }
@@ -49,4 +51,8 @@ Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
 
 string Borrow:: toString() const {
     return to_string(mediaType) + "\tBorrow\t" + movie->toString();
+}
+
+char Borrow:: getType() const {
+    return 'B';
 }

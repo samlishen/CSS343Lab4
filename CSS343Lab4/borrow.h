@@ -9,15 +9,17 @@
 #ifndef __CSS343Lab4__borrow__
 #define __CSS343Lab4__borrow__
 
-#include "command.h"
+#include "instruction.h"
+#include "movie.h"
 
-class Borrow : public Command{
+class Borrow : public Instruction{
 public:
     Borrow();
     virtual ~Borrow();
     
     virtual Instruction* create(MovieStore*, ifstream&) const;
     virtual string toString() const;
+    virtual char getType() const;
     
 protected:
     Movie* movie;

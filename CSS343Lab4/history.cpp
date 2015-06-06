@@ -7,6 +7,7 @@
 //
 
 #include "history.h"
+#include "movieStore.h"
 
 History:: History() {
     
@@ -28,4 +29,8 @@ Instruction* History:: create(MovieStore* store, ifstream& infile) const {
         return newInstruction;
     }
     return NULL;
+}
+
+char History:: getType() const {
+    return 'H';
 }

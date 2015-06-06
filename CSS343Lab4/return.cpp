@@ -7,6 +7,7 @@
 //
 
 #include "return.h"
+#include "movieStore.h"
 
 Return:: Return() {
     
@@ -35,6 +36,8 @@ Instruction* Return:: create(MovieStore* store, ifstream& infile) const {
                 newInstruction->customer = customerToBeProcessed;
                 newInstruction->movie = movieToBeProcessed;
                 newInstruction->mediaType = mediaT;
+                newInstruction->customer->addHistory(newInstruction);
+                return newInstruction;
             }
         }
     }
@@ -47,3 +50,6 @@ string Return:: toString() const {
     return to_string(mediaType) + "\tReturn\t" + movie->toString();
 }
 
+char Return:: getType() const {
+    return 'R';
+}

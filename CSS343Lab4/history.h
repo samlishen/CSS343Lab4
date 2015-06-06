@@ -9,15 +9,16 @@
 #ifndef __CSS343Lab4__history__
 #define __CSS343Lab4__history__
 
-#include "command.h"
+#include "instruction.h"
 
-class History : public Command {
+class History : public Instruction {
 public:
     History();
     ~History();
     
     virtual Instruction* create(MovieStore*, ifstream&) const;
     virtual string toString() const;
+    virtual char getType() const;
 };
 
 #endif /* defined(__CSS343Lab4__history__) */

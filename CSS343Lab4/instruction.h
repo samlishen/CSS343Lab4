@@ -14,16 +14,22 @@
 #include "movieStore.h"
 using namespace std;
 
+class MovieStore;
+class Customer;
 
 class Instruction {
 public:
     Instruction();
     virtual ~Instruction();
     
-    virtual Instruction* create(MovieStore*, ifstream&) const = 0;
+    virtual Instruction* create(MovieStore*, ifstream&) const;
+    virtual string toString() const;
+    virtual char getType() const;
     
 protected:
+    Customer* customer;
     virtual int hash(char) const;
+    static MovieFactory movieFactory;
 };
 
 #endif /* defined(__CSS343Lab4__instruction__) */

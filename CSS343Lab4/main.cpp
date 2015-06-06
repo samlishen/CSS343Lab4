@@ -13,6 +13,10 @@ using namespace std;
 
 int main() {
     MovieStore store;
-    ifstream infile("data4movies.txt");
-    store.buildMovieDepository(infile);
+    ifstream movie("data4movies.txt"),
+    customer("data4customers"),
+    instruction("data4commands");
+    store.buildMovieDepository(movie);
+    store.buildCustomerDepository(customer);
+    store.processInstruction(instruction);
 }

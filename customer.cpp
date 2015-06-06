@@ -7,7 +7,7 @@
 //
 
 
-#include "Customer.h"
+#include "customer.h"
 #include <iostream>
 
 using namespace std;

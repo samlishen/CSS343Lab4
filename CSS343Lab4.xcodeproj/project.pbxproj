@@ -36,8 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A01E78B1B226DDA009B4DA2 /* customer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = customer.cpp; sourceTree = "<group>"; };
-		0A01E78C1B226DDA009B4DA2 /* customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customer.h; sourceTree = "<group>"; };
+		0A01E78B1B226DDA009B4DA2 /* customer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = customer.cpp; path = ../customer.cpp; sourceTree = "<group>"; };
+		0A01E78C1B226DDA009B4DA2 /* customer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = customer.h; path = ../customer.h; sourceTree = "<group>"; };
 		0A3C93221B212D1C00FB422D /* CSS343Lab4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSS343Lab4; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3C93251B212D1C00FB422D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0A3C932C1B212D4400FB422D /* mediaType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mediaType.cpp; sourceTree = "<group>"; };
@@ -94,6 +94,7 @@
 				0A3C93581B215F9200FB422D /* command.h */,
 				0A3C935B1B21603E00FB422D /* borrow.h */,
 				0A3C93631B216BD400FB422D /* return.h */,
+				0A01E78C1B226DDA009B4DA2 /* customer.h */,
 			);
 			name = ".h files";
 			sourceTree = "<group>";
@@ -114,6 +115,7 @@
 				0A3C93571B215F9200FB422D /* command.cpp */,
 				0A3C935A1B21603E00FB422D /* borrow.cpp */,
 				0A3C93621B216BD400FB422D /* return.cpp */,
+				0A01E78B1B226DDA009B4DA2 /* customer.cpp */,
 			);
 			name = ".cpp files";
 			sourceTree = "<group>";
@@ -121,8 +123,6 @@
 		0A3C93191B212D1C00FB422D = {
 			isa = PBXGroup;
 			children = (
-				0A01E78B1B226DDA009B4DA2 /* customer.cpp */,
-				0A01E78C1B226DDA009B4DA2 /* customer.h */,
 				0A3C93241B212D1C00FB422D /* CSS343Lab4 */,
 				0A3C93231B212D1C00FB422D /* Products */,
 			);

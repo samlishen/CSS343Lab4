@@ -22,14 +22,14 @@ public:
     Instruction();
     virtual ~Instruction();
     
-    virtual Instruction* create(MovieStore*, ifstream&) const;
-    virtual string toString() const;
-    virtual char getType() const;
+    virtual Instruction* create(MovieStore*, ifstream&) const = 0;
+    virtual string toString() const = 0;
+    virtual char getType() const = 0;
     
 protected:
     Customer* customer;
     virtual int hash(char) const;
-    static MovieFactory movieFactory;
+    MovieFactory* movieFactory;
 };
 
 #endif /* defined(__CSS343Lab4__instruction__) */

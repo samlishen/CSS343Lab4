@@ -17,7 +17,6 @@
 #ifndef __MovieStoreSegment__hashTable__
 #define __MovieStoreSegment__hashTable__
 #include <vector>
-#include <stdio.h>
 #include <iostream>
 
 using namespace std;

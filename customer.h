@@ -30,7 +30,7 @@ public:
     void addHistory(Instruction*);
     virtual void displayHistory()const;
     
-    bool getOwn(Movie* m,Movie* save)const;
+    bool getOwn(Movie* m,Movie*& save)const;
     bool checkOwn(Movie* m)const;
     bool addOwn(Movie* m);
     bool deleteOwn(Movie* m);

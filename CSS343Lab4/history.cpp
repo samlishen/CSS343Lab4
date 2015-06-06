@@ -21,16 +21,16 @@ Instruction* History:: create(MovieStore* store, ifstream& infile) const {
     int id;
     infile >> id;
     Customer* custormerToBeProcessed;
-    
     if((store->customers).retrieve(id, custormerToBeProcessed)) {
-        History* newInstruction = new History;
-        newInstruction->customer = custormerToBeProcessed;
         custormerToBeProcessed->displayHistory();
-        return newInstruction;
     }
     return NULL;
 }
 
 char History:: getType() const {
     return 'H';
+}
+
+string History:: toString() const {
+    return "";
 }

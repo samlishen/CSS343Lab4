@@ -71,7 +71,7 @@ bool Customer::deleteOwn(Movie* m){
     
 }
 
-bool Customer::getOwn(Movie* m,Movie* save)const{
+bool Customer::getOwn(Movie* m,Movie*& save)const{
     if(!checkOwn(m)){
         save=NULL;
         return false;
@@ -104,9 +104,10 @@ void Customer::addHistory(Instruction* com){
 }
 
 void Customer::displayHistory()const{
-    
-    for(int i=0;i<history.size();i++){
-        cout<<history[i]->toString()<<endl;
+    cout << "Here is the history for: "
+    << first << " " << last << " " << ID << endl;
+    for(int i=history.size()-1;i>=0;i--){
+        cout<<"\t"<<history[i]->toString()<<endl;
     }
     
 }

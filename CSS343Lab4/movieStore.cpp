@@ -13,6 +13,8 @@ MovieStore:: MovieStore() {
     for (int i = 0; i < TYPESIZE; i++) {
         moviesDatabase[i] = new BSTree;
     }
+    moviefactory = new MovieFactory;
+    instructionFactory = new InstructionFactory;
 }
 
 MovieStore:: ~MovieStore() {
@@ -22,6 +24,10 @@ MovieStore:: ~MovieStore() {
     }
     delete [] moviesDatabase;
     moviesDatabase = NULL;
+    delete moviefactory;
+    moviefactory = NULL;
+    delete instructionFactory;
+    instructionFactory = NULL;
 }
 
 void MovieStore:: buildMovieDepository(ifstream& infile) {
@@ -31,7 +37,7 @@ void MovieStore:: buildMovieDepository(ifstream& infile) {
         if (infile.eof()) {
             return;
         }
-        Movie* newMovie = moviefactory.createIt(type, infile);
+        Movie* newMovie = moviefactory->createIt(type, infile);
         if(newMovie == NULL) {
             string reading;
             getline(infile, reading);
@@ -58,6 +64,6 @@ void MovieStore:: processInstruction(ifstream& infile) {
         if (infile.eof()) {
             return;
         }
-        instructionFactory.createIt(type, this, infile);
+        instructionFactory->createIt(type, this, infile);
     }
 }

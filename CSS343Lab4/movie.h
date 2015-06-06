@@ -10,7 +10,9 @@
 #define __CSS343Lab4__movie__
 
 #include "mediaType.h"
+#include <iostream>
 #include <fstream>
+using namespace std;
 
 
 class Movie {
@@ -26,6 +28,7 @@ public:
     virtual bool operator == (const Movie&) const = 0;
     virtual bool operator > (const Movie&) const = 0;
     
+    virtual string getMediaTypeName(char) const;
     virtual string toString() const;
     virtual string displayType() const;
     virtual bool isEnough(char, int) const;
@@ -37,7 +40,7 @@ protected:
     string director;
     string title;
     int year;
-    MediaType** type;
+    MediaType* type;
     const int TYPESIZE = 26;
     
     virtual int hash(char) const;

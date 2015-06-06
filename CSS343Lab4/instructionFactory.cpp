@@ -36,6 +36,14 @@ InstructionFactory:: ~InstructionFactory() {
 
 Instruction* InstructionFactory::
 createIt(char ch, MovieStore* store, ifstream& infile) const {
-    if (instructions[hash(ch)] == NULL) return NULL;
+    if (instructions[hash(ch)] == NULL) {
+        string reading;
+        getline(infile, reading);
+        return NULL;
+    }
     return instructions[hash(ch)]->create(store, infile);
+}
+
+int InstructionFactory:: hash(char ch) {
+    return ch - 'A';
 }

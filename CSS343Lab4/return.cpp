@@ -9,7 +9,7 @@
 #include "return.h"
 #include "movieStore.h"
 
-Return:: Return() {
+Return:: Return() : Instruction() {
     
 }
 
@@ -25,7 +25,7 @@ Instruction* Return:: create(MovieStore* store, ifstream& infile) const {
         char mediaT, movieT;
         Movie* movieToBeSearch = NULL;
         infile >> mediaT >> movieT;
-        movieToBeSearch = movieFactory.createSimpleIt(movieT, infile);
+        movieToBeSearch = movieFactory->createSimpleIt(movieT, infile);
         if (movieToBeSearch != NULL) {
             Movie* movieToBeProcessed = NULL;
             if(customerToBeProcessed->
@@ -47,7 +47,7 @@ Instruction* Return:: create(MovieStore* store, ifstream& infile) const {
 }
 
 string Return:: toString() const {
-    return to_string(mediaType) + "\tReturn\t" + movie->toString();
+    return  movie->getMediaTypeName(mediaType) + "\tReturn\t" + movie->toString();
 }
 
 char Return:: getType() const {

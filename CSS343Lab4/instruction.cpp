@@ -10,11 +10,15 @@
 
 
 Instruction:: Instruction() {
-    
+    movieFactory = new MovieFactory;
+    customer = new Customer;
 }
 
 Instruction:: ~Instruction() {
-    
+    delete movieFactory;
+    movieFactory = NULL;
+    delete customer;
+    customer = NULL;
 }
 
 int Instruction:: hash(char ch) const {

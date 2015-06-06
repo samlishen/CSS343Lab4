@@ -20,6 +20,7 @@
 using namespace std;
 
 class InstructionFactory;
+class MovieFactory;
 
 class MovieStore {
     friend class Borrow;
@@ -37,8 +38,8 @@ private:
     const int TYPESIZE = 26;
     BSTree** moviesDatabase;
     HashTable<Customer*> customers;
-    static MovieFactory moviefactory;
-    static InstructionFactory instructionFactory;
+    MovieFactory* moviefactory;
+    InstructionFactory* instructionFactory;
 };
 
 #endif /* defined(__CSS343Lab4__movieStore__) */

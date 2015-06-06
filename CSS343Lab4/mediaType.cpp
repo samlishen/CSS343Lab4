@@ -9,7 +9,9 @@
 #include "mediaType.h"
 
 MediaType:: MediaType() {
-    
+    typeName = "";
+    current = 0;
+    max = 0;
 }
 
 MediaType:: MediaType(string type) {

@@ -22,7 +22,7 @@ Classics:: ~Classics(){
 }
 
 Movie* Classics:: create(ifstream& infile) const {
-    Classics* newMovie = new Classics;
+    Classics* newMovie = new Classics();
     string d, t, f, l;
     int m, y;
     

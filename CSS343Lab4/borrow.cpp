@@ -7,9 +7,10 @@
 //
 
 #include "borrow.h"
+#include "drama.h"
 #include "movieStore.h"
 
-Borrow:: Borrow() {
+Borrow:: Borrow() : Instruction() {
     
 }
 
@@ -25,9 +26,10 @@ Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
         char mediaT, movieT;
         Movie* movieToBeSearch = NULL;
         infile >> mediaT >> movieT;
-        movieToBeSearch = movieFactory.createSimpleIt(movieT, infile);
+        movieToBeSearch = movieFactory->createSimpleIt(movieT, infile);
         if (movieToBeSearch == NULL) {
-            delete customerToBeProcessed;
+            string reading;
+            getline(infile, reading);
             return NULL;
         }
         Movie* movieToBeProcessed = NULL;
@@ -35,7 +37,7 @@ Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
             retrieve(movieToBeSearch, movieToBeProcessed)) {
             if (movieToBeProcessed->borrowType(mediaT, 1)) {
                 customerToBeProcessed->addOwn(movieToBeProcessed);
-                Borrow* newInstruction;
+                Borrow* newInstruction = new Borrow;
                 newInstruction->movie = movieToBeProcessed;
                 newInstruction->customer = customerToBeProcessed;
                 newInstruction->mediaType = mediaT;
@@ -50,7 +52,7 @@ Instruction* Borrow:: create(MovieStore* store, ifstream& infile) const {
 }
 
 string Borrow:: toString() const {
-    return to_string(mediaType) + "\tBorrow\t" + movie->toString();
+    return movie->getMediaTypeName(mediaType) + "\tBorrow\t" + movie->toString();
 }
 
 char Borrow:: getType() const {

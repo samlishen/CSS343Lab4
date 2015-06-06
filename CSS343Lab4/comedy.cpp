@@ -22,7 +22,7 @@ Comedy:: ~Comedy() {
 }
 
 Movie* Comedy:: create(ifstream& infile) const {
-    Comedy* newMovie = new Comedy;
+    Comedy* newMovie = new Comedy();
     string d, t;
     int y;
     

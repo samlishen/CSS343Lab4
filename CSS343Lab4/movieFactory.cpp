@@ -19,9 +19,9 @@ MovieFactory:: MovieFactory() {
     Movie* classics = new Classics;
     Movie* drama = new Drama;
     Movie* comedy = new Comedy;
-    movies[hash(classics->getType())] = classics;
-    movies[hash(drama->getType())] = drama;
-    movies[hash(comedy->getType())] = comedy;
+    movies[2] = classics;
+    movies[3] = drama;
+    movies[5] = comedy;
 }
 
 MovieFactory:: ~MovieFactory() {

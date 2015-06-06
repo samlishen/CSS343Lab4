@@ -21,6 +21,7 @@ using namespace std;
 class MovieStore {
     friend class Borrow;
     friend class Return;
+    friend class History;
 public:
     MovieStore();
     ~MovieStore();

@@ -10,19 +10,17 @@
 #define __CSS343Lab4__command__
 
 #include "instruction.h"
-#include "movieFactory.h"
-#include "HashTable.h"
-#include "BSTree.h"
-#include "Customer.h"
+
 class Command : public Instruction {
 public:
     Command();
-    ~Command();
+    virtual ~Command();
     
     virtual string toString() const = 0;
     
 protected:
     Customer* customer;
+    static MovieFactory movieFactory;
 };
 
 #endif /* defined(__CSS343Lab4__command__) */

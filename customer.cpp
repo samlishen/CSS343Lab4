@@ -8,6 +8,7 @@
 
 
 #include "customer.h"
+#include "command.h"
 #include <iostream>
 
 using namespace std;
@@ -101,6 +102,7 @@ void Customer::addHistory(Command* com){
     vector<Command*>::iterator it=history.begin();
     history.insert(it,com);
 }
+
 void Customer::displayHistory()const{
     
     for(int i=0;i<history.size();i++){

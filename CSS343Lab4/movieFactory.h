@@ -12,12 +12,14 @@
 #include "movie.h"
 #include <fstream>
 
+
 class MovieFactory {
 public:
     MovieFactory();
     ~MovieFactory();
     
     Movie* createIt(char, ifstream&) const;
+    Movie* createSimpleIt(char, ifstream&) const;
     
 private:
     const int SIZE = 26;

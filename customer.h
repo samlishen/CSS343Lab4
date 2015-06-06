@@ -10,11 +10,11 @@
 #define __MovieStore__customer__
 
 #include "movie.h"
-#include "command.h"
 #include <vector>
 #include <string>
 using namespace std;
 
+class Command;
 class Customer {
 public:
     Customer();

@@ -10,14 +10,11 @@
 #define __CSS343Lab4__borrow__
 
 #include "command.h"
-#include "movie.h"
-#include "BSTree.h"
-#include "HashTable.h"
 
 class Borrow : public Command{
 public:
     Borrow();
-    ~Borrow();
+    virtual ~Borrow();
     
     virtual Instruction* create(MovieStore*, ifstream&) const;
     virtual string toString() const;

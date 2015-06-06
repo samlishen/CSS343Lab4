@@ -81,7 +81,6 @@
 		0A01E7851B2250F6009B4DA2 /* .h files */ = {
 			isa = PBXGroup;
 			children = (
-				0A3C935E1B2164C300FB422D /* HashTable.h */,
 				0A3C934B1B214BEF00FB422D /* movieStore.h */,
 				0A3C93301B212F8E00FB422D /* movie.h */,
 				0A3C93361B21405300FB422D /* drama.h */,
@@ -89,12 +88,13 @@
 				0A3C93331B21344E00FB422D /* classics.h */,
 				0A3C93451B21481C00FB422D /* movieFactory.h */,
 				0A3C932D1B212D4400FB422D /* mediaType.h */,
-				0A3C934F1B21528700FB422D /* BSTree.h */,
 				0A3C93521B215C0D00FB422D /* instruction.h */,
 				0A3C93581B215F9200FB422D /* command.h */,
 				0A3C935B1B21603E00FB422D /* borrow.h */,
 				0A3C93631B216BD400FB422D /* return.h */,
 				0A01E78C1B226DDA009B4DA2 /* customer.h */,
+				0A3C935E1B2164C300FB422D /* HashTable.h */,
+				0A3C934F1B21528700FB422D /* BSTree.h */,
 			);
 			name = ".h files";
 			sourceTree = "<group>";

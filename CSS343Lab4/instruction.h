@@ -14,12 +14,13 @@
 #include "movieStore.h"
 using namespace std;
 
+
 class Instruction {
 public:
     Instruction();
     virtual ~Instruction();
     
-    virtual Instruction* create(MovieStore* ,fstream&) const = 0;
+    virtual Instruction* create(MovieStore*, ifstream&) const = 0;
     
 protected:
     virtual int hash(char) const;

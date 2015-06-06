@@ -9,17 +9,18 @@
 #ifndef __CSS343Lab4__movieStore__
 #define __CSS343Lab4__movieStore__
 
-#include "movie.h"
-#include "Customer.h"
+#include <fstream>
+#include <iostream>
 #include "BSTree.h"
 #include "HashTable.h"
 #include "movieFactory.h"
-#include <fstream>
-#include <iostream>
+#include "customer.h"
+
 using namespace std;
 
 class MovieStore {
-    friend class Instruction;
+    friend class Borrow;
+    friend class Return;
 public:
     MovieStore();
     ~MovieStore();

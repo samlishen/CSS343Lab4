@@ -11,13 +11,13 @@
 
 #include "command.h"
 
-class Return : Command {
+class Return : public Command {
 public:
     Return();
-    ~Return();
+    virtual ~Return();
     
-    virtual bool process(BSTree*, HashTable<Customer>);
-    virtual Instruction* create(ifstream&) const;
+    virtual Instruction* create(MovieStore*, ifstream&) const;
+    virtual string toString() const;
     
 private:
     Movie* movie;

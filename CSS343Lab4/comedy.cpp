@@ -48,7 +48,9 @@ Movie* Comedy:: createSimpleVersion(ifstream& infile) const {
     infile.get();
     getline(infile, t, ',');
     infile >> y;
-    n
+    newMovie->title = t;
+    newMovie->year = y;
+    return newMovie;
 }
 
 char Comedy:: getType() const {

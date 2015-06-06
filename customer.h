@@ -34,7 +34,6 @@ public:
     bool addOwn(Movie* m);
     bool deleteOwn(Movie* m);
     
-    
     virtual Customer* create(ifstream&) const ;
     
 private:

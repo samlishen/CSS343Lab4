@@ -46,6 +46,25 @@ Movie* Classics:: create(ifstream& infile) const {
     return newMovie;
 }
 
+Movie* Classics:: createSimpleVersion(ifstream& infile) const {
+    Classics* newMovie = new Classics;
+    int m, y;
+    string f, l;
+    
+    infile.get();
+    infile >> m >> y;
+    
+    infile.get();
+    infile >> f >> l;
+    
+    newMovie->month = m;
+    newMovie->year = y;
+    newMovie->actorFirstName = f;
+    newMovie->actorLastName = l;
+    
+    return newMovie;
+}
+
 char Classics:: getType() const {
     return 'C';
 }
